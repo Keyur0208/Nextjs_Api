@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.title-form {
+    background-color: #5DAAA7;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    color: white;
+    word-spacing: 5px;
+    letter-spacing: 2px;
+}
+
+
+.student-details {
+    background-color: #AED3D4;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.form-control {
+    outline: none;
+}
+
+.form-control:focus {
+    outline: none;
+    box-shadow: none;
+    border: 2px solid #5DAAA7;
+}
+
+.radio-button span{
+    padding:0.5rem;
+}
+
+.form-select{
+    border: none;
+}
+
+.form-select:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.course-option:focus{
+    border: 2px solid #5DAAA7;
+}

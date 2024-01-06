@@ -1,0 +1,21 @@
+.popup-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-box{
+    background-color: white;
+}
+
+.popup-title{
+    padding: 1rem;
+    background-color: green;
+    color: white;
+}
+
+.popup-text{
+    padding: 2rem;
+    text-align: center;
+}
