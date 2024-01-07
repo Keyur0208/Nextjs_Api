@@ -52,7 +52,7 @@ export default async function student() {
                                         <td><a href={`student/${item._id}`} >Go To Details</a></td>
                                         <td>
                                             <button className="btn btn-primary btn-sm" >
-                                                <Link href={`/student/update/${item._id}`} className="text-white" >Update</Link>
+                                                <Link href={`student/update/${item._id}`} className="text-white" >Update</Link>
                                             </button>
                                         </td>
                                         <td><Delete id={item._id} /></td>
