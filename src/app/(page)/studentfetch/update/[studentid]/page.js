@@ -227,7 +227,7 @@ export default function UpdateForm(props) {
                             </div>
                         </div>
                     </div>
-                    <Back link='/student' />
+                    <Back link='/studentfetch' />
                 </form>
             </div>
         </main >

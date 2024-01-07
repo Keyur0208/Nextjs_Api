@@ -24,7 +24,7 @@ export default function Home() {
                      </Link>
                   </div>
                   <div className="card 2">
-                     <Link href="/student" style={{textDecoration:'none'}}>
+                     <Link href="/studentfetch" style={{textDecoration:'none'}}>
                         <div className="card_image">
                            <img src="/SISBanner768x728.svg" className="w-100" />
                         </div>
