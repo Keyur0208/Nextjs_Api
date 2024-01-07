@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import "../../../form/style.css"
 import Back from "@/app/componets/back";
+import { BASE_API_URL } from "@/app/lib/studentdb";
 
 
 export default function UpdateForm(props) {
@@ -69,7 +70,7 @@ export default function UpdateForm(props) {
 
     async function Getstudentdetails() {
         const studentdata = props.params.studentid;
-        let student_data = await fetch("http://localhost:3000/api/getstudent/" + studentdata);
+        let student_data = await fetch(`${BASE_API_URL}/api/getstudent/` + studentdata);
         student_data = await student_data.json();
         console.log(student_data);
 

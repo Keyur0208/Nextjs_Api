@@ -1,5 +1,6 @@
 import Back from "@/app/componets/back";
 import Delete from "@/app/componets/delete";
+import { BASE_API_URL } from "@/app/lib/studentdb";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link"
@@ -9,7 +10,7 @@ export const metadata = {
 }
 
 export async function Getstudentdetails() {
-    let data = await fetch("http://localhost:3000/api/getstudent", { cache: 'no-store' });
+    let data = await fetch(`${BASE_API_URL}/api/getstudent`, { cache: 'no-store' });
     data = await data.json();
     return data.students;
 }

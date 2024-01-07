@@ -1,12 +1,13 @@
 import Link from "next/link";
 import Imgae_delete from "../../../componets/delete_bg";
+import { BASE_API_URL } from "@/app/lib/studentdb";
 
 export const metadata = {
   title: "Student Details"
 }
 
 async function studentdetails(studentid) {
-  let data = await fetch(`http://localhost:3000/api/getstudent/${studentid}` ,{cache:"no-store"});
+  let data = await fetch(`${BASE_API_URL}/api/getstudent/${studentid}` ,{cache:"no-store"});
   data = await data.json();
   return data.students;
 }

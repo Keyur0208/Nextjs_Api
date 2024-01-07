@@ -1,11 +1,12 @@
 "use client"
 import { useRouter } from "next/navigation";
+import { BASE_API_URL } from "../lib/studentdb";
 
 export default function Delete(props) {
     const router = useRouter();
     const deletestudent = async () => {
         let student_id = props.id;
-        let data = await fetch("http://localhost:3000/api/getstudent/" + student_id, {
+        let data = await fetch(`${BASE_API_URL}/api/getstudent/` + student_id, {
             method: "DELETE"
         });
         data = await data.json();

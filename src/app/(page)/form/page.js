@@ -2,6 +2,7 @@
 import { useState } from "react";
 import "./style.css"
 import Back from "@/app/componets/back";
+import { BASE_API_URL } from "@/app/lib/studentdb";
 
 
 export default function Form() {
@@ -72,7 +73,7 @@ export default function Form() {
             alert("Plz Feels Your Form")
         }
         else {
-            let data = await fetch("http://localhost:3000/api/getstudent", {
+            let data = await fetch(`${BASE_API_URL}/api/getstudent`, {
                 method: "POST",
                 body: JSON.stringify({ first_name, last_name, address, mail, mobile, gender, bdate, rno, semester, clg, course_details, class_details })
             });
