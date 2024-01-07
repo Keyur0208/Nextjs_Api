@@ -15,7 +15,7 @@ export default function Delete(props) {
 
     return (
         <div>
-            <button className="btn btn-danger btn-sm" onClick={deletestudent}  >Delete</button>
+            <button className="btn btn-danger btn-sm" onClick={deletestudent}>Delete</button>
         </div>
     )
 }

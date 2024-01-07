@@ -15,7 +15,7 @@ export async function Getstudentdetails() {
     return data.students;
 }
 
-export default async function student() {
+export default async function Student_details() {
 
     let students = await Getstudentdetails();
     console.log(students);
@@ -32,7 +32,7 @@ export default async function student() {
                 </Link>
             </div>
             <div className="table-responsive">
-                <table className="table mt-2 text-center table-hover  table-bordered border-dark"  >
+                <table className="table mt-2 text-center table-hover table-bordered border-dark"  >
                     <thead className="table-success table-bordered border-dark" >
                         <tr >
                             <th>Student Rno</th>
@@ -63,7 +63,7 @@ export default async function student() {
                     </tbody>
                 </table>
             </div>
-            <Back link='/' />
+            {/* <Back link='/' /> */}
         </div>
     )
 }
