@@ -93,7 +93,7 @@ export default function UpdateForm(props) {
 
     async function update() {
         const studentdata = props.params.studentid;
-        let data = await fetch("http://localhost:3000/api/getstudent/" + studentdata, {
+        let data = await fetch(`${BASE_API_URL}/api/getstudent/` + studentdata, {
             method: "PUT",
             body: JSON.stringify({ first_name, last_name, address, mail, mobile, gender, bdate, rno, semester, clg, course_details, class_details })
         });
