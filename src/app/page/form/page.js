@@ -87,7 +87,7 @@ export default function Form() {
         <main className="container-fluid" >
             <div className="p-lg-5 p-2 ">
                 <h2 className="title-form text-center">STUDENT INFORMATION FORM</h2>
-                <form action="/studentfetch" >
+                <form action="/page/studentfetch" >
                     <div className="student-details" >
                         <div className="container p-3" style={{ marginTop: '-1rem' }} >
                             <div className="row gy-3">

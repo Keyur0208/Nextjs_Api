@@ -1,6 +1,6 @@
 import React from "react"
 import Link from "next/link"
-import './(page)/home/style.css'
+import './page/home/style.css'
 
 export const metadata = {
    title: "Student Details"
@@ -14,7 +14,7 @@ export default function Home() {
             <div className="container mt-3" >
                <div className="cards-list">
                   <div className="card 1">
-                     <Link href='/form' style={{textDecoration:'none'}}>
+                     <Link href='/page/form' style={{textDecoration:'none'}}>
                         <div className="card_image">
                            <img src="/istockphoto-1336723114-612x612.jpg" className="w-100" />
                         </div>
@@ -24,7 +24,7 @@ export default function Home() {
                      </Link>
                   </div>
                   <div className="card 2">
-                     <Link href="/studentfetch" style={{textDecoration:'none'}}>
+                     <Link href="/page/studentfetch" style={{textDecoration:'none'}}>
                         <div className="card_image">
                            <img src="/SISBanner768x728.svg" className="w-100" />
                         </div>

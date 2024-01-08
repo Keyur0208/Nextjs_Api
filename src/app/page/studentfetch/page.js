@@ -24,7 +24,7 @@ export default async function Student_details() {
         <div className="container" >
             <h1 className="text-center text-white pt-5" >Students Information</h1>
             <div className="text-end">
-                <Link href="/form">
+                <Link href="/page/form">
                     <button className="btn btn-light">
                         <FontAwesomeIcon icon={faPlus} className="px-1"  style={{height:'1.2rem'}}/>
                         Add Student
@@ -49,10 +49,10 @@ export default async function Student_details() {
                                     <tr >
                                         <td key={idex} >{item.rno}</td>
                                         <td key={idex}>{item.first_name} {item.last_name}</td>
-                                        <td><a href={`/studentfetch/${item._id}`} >Go To Details</a></td>
+                                        <td><a href={`/page/studentfetch/${item._id}`} >Go To Details</a></td>
                                         <td>
                                             <button className="btn btn-primary btn-sm" >
-                                                <Link href={`/studentfetch/update/${item._id}`} className="text-white" >Update</Link>
+                                                <Link href={`/page/studentfetch/update/${item._id}`} className="text-white" >Update</Link>
                                             </button>
                                         </td>
                                         <td><Delete id={item._id} /></td>

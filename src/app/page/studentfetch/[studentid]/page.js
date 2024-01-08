@@ -91,7 +91,7 @@ export default async function Page({ params }) {
                 </div>
                 <div className="container pb-2" style={{ display: 'flex', justifyContent: 'space-around' }} >
                   <div>
-                    <Link href="/studentfetch">
+                    <Link href="/page/studentfetch">
                       <button className="btn btn-secondary">
                         <img src="/backward-solid.svg" className="p-1" />
                         Back
@@ -99,7 +99,7 @@ export default async function Page({ params }) {
                     </Link>
                   </div>
                   <div>
-                    <Link href={`/studentfetch/update/${student._id}`}>
+                    <Link href={`/page/studentfetch/update/${student._id}`}>
                       <button className="btn btn-primary">
                         <img src="/pen-nib-solid.svg" className="p-1" />
                         Update
