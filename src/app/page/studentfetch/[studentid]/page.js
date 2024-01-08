@@ -44,7 +44,7 @@ export default async function Page({ params }) {
                   <h3 className="mb-0"><i className="far fa-clone pr-1"></i>General Information</h3>
                 </div>
                 <div className="card-body pt-0">
-                  <table className="table table-bordered">
+                  <table className="table table-bordered text-start">
                     <tbody>
                       <tr>
                         <th width="30%">Roll No</th>

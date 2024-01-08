@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 const studentdeatils = mongoose.Schema({
     
     rno:Number,
-    
     first_name:String,
     last_name:String,
     address:String,
