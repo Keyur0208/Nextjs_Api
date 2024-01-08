@@ -17,6 +17,10 @@ export async function Getstudentdetails() {
 
 export default async function Student_details() {
 
+    if(!BASE_API_URL){
+        return null;
+    }
+
     let students = await Getstudentdetails();
     console.log(students);
 
