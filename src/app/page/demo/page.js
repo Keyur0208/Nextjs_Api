@@ -76,8 +76,7 @@ const App = () => {
 				<button 
 					style={{ ...styles.button, opacity: isFormValid ? 1 : 0.5 }} 
 					disabled={!isFormValid} 
-					onClick={handleSubmit} 
-				> 
+					onClick={handleSubmit} > 
 					Submit 
 				</button> 
 			</div> 

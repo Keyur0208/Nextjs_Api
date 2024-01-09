@@ -45,3 +45,8 @@
 .course-option:focus{
     border: 2px solid #5DAAA7;
 }
+
+.error_message{
+    color: red;
+    font-size: 0.8rem;
+}
