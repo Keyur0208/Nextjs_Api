@@ -75,7 +75,7 @@ export default function Form() {
 
     useEffect(() => {
         validationForm();
-    }, [first_name,last_name,address,mail,mobile,clg]);
+    }, [first_name, last_name, address, mail, mobile, clg,gender,bdate,course_details,class_details,semester]);
 
     const validationForm = () => {
 
@@ -90,12 +90,12 @@ export default function Form() {
         // Last Name //
 
         if (!last_name) {
-            errors.last_name  = "Last Name is Requird"
+            errors.last_name = "Last Name is Requird"
         }
 
         // Address //
 
-        if(!address){
+        if (!address) {
             errors.address = "Must Be Adress Requried"
         }
 
@@ -110,31 +110,34 @@ export default function Form() {
 
         // Phone Number Digits //
 
-        if(!mobile)
-        {
+        if (!mobile) {
             errors.mobile = "Mobile Requird";
         }
-        else if(mobile.length<10)
-        {
+        else if (mobile.length < 10) {
             errors.mobile = "Mobile Number Must 10 Digit";
         }
 
         // Colleage Name // 
 
-        if(!clg)
-        {
+        if (!clg) {
             errors.clg = "College Name Requird";
         }
+    
 
         seterrors(errors);
         setisFormValid(Object.keys(errors).length === 0);
     }
 
-   
+
     // Api Call By Submit Button  
 
-    async function submit(){
-        if (isFormValid) {
+    async function submit() {
+        if(!isFormValid || !bdate || !semester || !clg || !course_details || !class_details || !gender)
+        {
+            alert("Plz Feel Out Details");
+        }
+        else
+        {
             let data = await fetch(`${BASE_API_URL}/api/getstudent`, {
                 method: "POST",
                 body: JSON.stringify({ first_name, last_name, address, mail, mobile, gender, bdate, rno, semester, clg, course_details, class_details })
@@ -143,8 +146,6 @@ export default function Form() {
             console.log(data)
             alert("SucessFull Data")
             Router.push('/page/studentfetch')
-        } else {
-            alert("Plz Feel Out Details");
         }
     }
 
@@ -156,56 +157,56 @@ export default function Form() {
                     <div className="container p-3" style={{ marginTop: '-1rem' }} >
                         <div className="row gy-3">
                             <div className="col-12 col-sm-12 col-md-6 col-lg ">
-                                <input 
-                                type="text" 
-                                placeholder="First Name" 
-                                className="form-control" 
-                                required 
-                                autoFocus
-                                value={first_name}
-                                onChange={(e) => setfirst_name(e.target.value)} />
+                                <input
+                                    type="text"
+                                    placeholder="First Name"
+                                    className="form-control"
+                                    required
+                                    autoFocus
+                                    value={first_name}
+                                    onChange={(e) => setfirst_name(e.target.value)} />
                                 {errors.first_name && <span className="error_message">{errors.first_name}</span>}
                             </div>
                             <div className="col-12 col-sm-12 col-md-6 col-lg ">
-                                <input 
-                                type="text"
-                                placeholder="Last Name" 
-                                className="form-control" 
-                                required
-                                value={last_name}
-                                onChange={(e) => setlast_name(e.target.value)} />
+                                <input
+                                    type="text"
+                                    placeholder="Last Name"
+                                    className="form-control"
+                                    required
+                                    value={last_name}
+                                    onChange={(e) => setlast_name(e.target.value)} />
                                 {errors.last_name && <span className="error_message">{errors.last_name}</span>}
                             </div>
                         </div>
                         <div className="pt-3">
-                            <input 
-                            type="text" 
-                            placeholder="Address" 
-                            className="form-control" 
-                            required
-                            value={address}
-                            onChange={(e) => setaddress(e.target.value)} />
+                            <input
+                                type="text"
+                                placeholder="Address"
+                                className="form-control"
+                                required
+                                value={address}
+                                onChange={(e) => setaddress(e.target.value)} />
                             {errors.address && <span className="error_message" >{errors.address}</span>}
                         </div>
                         <div className="row gy-3 pt-3">
                             <div className="col-12 col-sm-12 col-md-6 col-lg ">
-                                <input 
-                                type="mail" 
-                                placeholder="Email" 
-                                className="form-control" 
-                                required
-                                value={mail}
-                                onChange={(e) => setmail(e.target.value)} />
+                                <input
+                                    type="mail"
+                                    placeholder="Email"
+                                    className="form-control"
+                                    required
+                                    value={mail}
+                                    onChange={(e) => setmail(e.target.value)} />
                                 {errors.mail && <span className="error_message">{errors.mail}</span>}
                             </div>
                             <div className="col-12 col-sm-12 col-md-6 col-lg ">
-                                <input 
-                                type="number"
-                                placeholder="Mobile Number" 
-                                className="form-control" 
-                                required
-                                value={mobile}
-                                onChange={(e) => setmobile(e.target.value)} />
+                                <input
+                                    type="number"
+                                    placeholder="Mobile Number"
+                                    className="form-control"
+                                    required
+                                    value={mobile}
+                                    onChange={(e) => setmobile(e.target.value)} />
                                 {errors.mobile && <span className="error_message">{errors.mobile}</span>}
                             </div>
                         </div>
@@ -281,7 +282,7 @@ export default function Form() {
                         <div className="pt-3">
                             <input type="text" placeholder="Collage Name" className="form-control" required
                                 value={clg}
-                                onChange={(e) => setclg(e.target.value)} 
+                                onChange={(e) => setclg(e.target.value)}
                             />
                             {errors.clg && <span className="error_message" >{errors.clg}</span>}
                         </div>

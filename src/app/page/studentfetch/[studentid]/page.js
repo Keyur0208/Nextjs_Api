@@ -74,7 +74,7 @@ export default async function Page({ params }) {
                       <tr>
                         <th width="30%">Mail</th>
                         <td width="2%">:</td>
-                        <td>{student.gender}</td>
+                        <td>{student.mail}</td>
                       </tr>
                       <tr>
                         <th width="30%">Semester</th>
