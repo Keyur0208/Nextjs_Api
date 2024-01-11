@@ -1,60 +1,63 @@
 "use client"
-import React from "react"
-import { useForm } from "react-hook-form"
+import React, { useState } from "react";
 
-export default function Demo1() {
-  
-    const {register , handleSubmit , formState:{errors}} = useForm();
+const countriesData = [
+  {
+    name: "BCA",
+    states: ["CLASS","FYBCA", "SYBCA", "TYBCA"]
+  },
+  {
+    name: "BBA",
+    states: ["ClASS","FYBBA", "SYBBA", "TYBBA"]
+  },
+  {
+    name: "BCOM",
+    states: ["CLASS", "FYBCOM", "SYBCOM", "TYBCOM"]
+  }
+];
 
-    function myfun(){
-        console.log("hello")
-    }
+function Form() {
+  const [{ country, state }, setData] = useState({
+    country: "BCA",
+    state: ""
+  });
 
-    return (
-        <>
-            <div className="container p-5" >
-                <form onSubmit={handleSubmit(myfun)}>
-                    <label htmlFor="firstname" >First Name</label>
-                    <input
-                    className="form-control"
-                    {...register('firstname',{required:true})}
-                    />
-                    {errors.firstname && <p className="text-danger" >Plz Valid Name</p>}
+  const countries = countriesData.map((country) => (
+    <option key={country.name} value={country.name}>
+      {country.name}
+    </option>
+  ));
 
-                    <br></br>
-                    <label htmlFor="lastname" >Lastt Name</label>
-                    <input 
-                    className="form-control"
-                    {...register('lastname',{required:true})}
-                    />
+  const states = countriesData.find(item => item.name === country)?.states.map((state) => (
+    <option key={state} value={state}>
+      {state}
+    </option>
+  ));
 
-                    {errors.lastname && <p className="text-danger" >Plz Valid Name</p>}
+  function handleCountryChange(event) {
+    setData(data => ({ state: '', country: event.target.value }));
+  }
 
-                    <div className="text-center">
-                        <input type="submit" className="btn btn-success " />
-                    </div>
-                </form>
-            </div>
-        </>
-    )
+  function handleStateChange(event) {
+    setData(data => ({ ...data, state: event.target.value }));
+  }
+
+  return (
+    <form onSubmit={() => console.log("Submitted")}>
+      <div>
+        <select value={country} onChange={handleCountryChange}>
+          {countries}
+        </select>
+      </div>
+
+      <div>
+        <select value={state} onChange={handleStateChange}>
+          {states}
+        </select>
+      </div>
+      <input type="submit" />
+    </form>
+  );
 }
 
-
-// "use client"
-// import { useForm } from 'react-hook-form';
-
-// export default function App() {
-//   const {
-//     register,
-//     handleSubmit,
-//     formState: { errors },
-//   } = useForm();
-
-//   return (
-//     <form onSubmit={handleSubmit((data) => console.log(data))}>
-//       <input  {...register('firstName', { required: true })} />
-//       {errors.firstName && <p>First name is required.</p>}
-//       <input type="submit" />
-//     </form>
-//   );
-// }
+export default Form;

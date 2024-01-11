@@ -61,6 +61,9 @@ export default function UpdateForm(props) {
         setName({ ...data, class_name: e.target.value });
     }
 
+    let class_details;
+    let course_details;
+
     useEffect(() => {
         Getstudentdetails();
     }, []);
@@ -82,24 +85,17 @@ export default function UpdateForm(props) {
             setsemester(student_data.students.semester);
             setclg(student_data.students.clg);
             setgender(student_data.students.gender);
-            setName(student_data.students.class_details);
             setName(student_data.students.course_details);
-
-            console.log(student_data.students.course_details);
-            console.log(student_data.students.class_details);
-
-
+            setName(student_data.students.class_details);
         }
         else {
             alert("Not Update Your Data");
         }
-
-        
     }
 
     async function update() {
         const studentdata = props.params.studentid;
-        let data = await fetch(`${BASE_API_URL}/api/getstudent/` + studentdata, {
+        let data = await fetch("http://localhost:3000/api/getstudent/" + studentdata, {
             method: "PUT",
             body: JSON.stringify({ first_name, last_name, address, mail, mobile, gender, bdate, rno, semester, clg, course_details, class_details })
         });
@@ -162,14 +158,14 @@ export default function UpdateForm(props) {
                                                     <input type="radio" className="mx-0 mx-lg-2" name="gender"
                                                         value="Male"
                                                         onChange={(e) => setgender(e.target.value)}
-                                                        checked={gender == "Male"}
+                                                         checked={gender === "Male"}
                                                     />Male
                                                 </div>
                                                 <div className="form-control mx-2">
                                                     <input type="radio" className="mx-0 mx-lg-2" name="gender"
                                                         value="Female"
                                                         onChange={(e) => setgender(e.target.value)}
-                                                        checked={gender == "Female"}
+                                                        checked={gender === "Female"}
                                                     />Female
 
                                                 </div>
@@ -189,7 +185,7 @@ export default function UpdateForm(props) {
                                         </div>
                                     </div>
                                     <div className="col-12 col-sm-12 col-mg-4 col-lg-4 pt-2 text-center" >
-                                        <select className="form-select form-control  course-option" value={data.course_details} onChange={handleCountry}>
+                                        <select className="form-select form-control  course-option" value={course_details=data.course_name} onChange={handleCountry}>
                                             {coursess}
                                         </select>
                                     </div>
@@ -199,14 +195,14 @@ export default function UpdateForm(props) {
                                 <div className="row gy-3" >
                                     <div className="col-12 col-lg-4 text-center" >
                                         <div className="radio-button course-option">
-                                            <select className="form-select form-control  course-option"  value={data.class_name} onChange={handleStateChange}>
+                                            <select className="form-select form-control  course-option" value={class_details = data.class_name} onChange={handleStateChange}>
                                                 {class_name}
                                             </select>
                                         </div>
                                     </div>
                                     <div className="col-12 col-lg-4 text-center" >
                                         <div className="radio-button">
-                                            <select className="form-select form-control  course-option" value={semester}  onChange={(e) => setsemester(e.target.value)}  >
+                                            <select className="form-select form-control  course-option" value={semester}  onChange={(e) => setsemester(e.target.value)} >
                                                 <option>Semester</option>
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
@@ -234,7 +230,7 @@ export default function UpdateForm(props) {
                             </div>
                         </div>
                     </div>
-                    <Back link='/page/studentfetch' />
+                    <Back link='/' />
                 </form>
             </div>
         </main >
