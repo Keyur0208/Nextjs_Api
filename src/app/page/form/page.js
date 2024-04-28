@@ -122,7 +122,6 @@ export default function Form() {
         if (!clg) {
             errors.clg = "College Name Requird";
         }
-    
 
         seterrors(errors);
         setisFormValid(Object.keys(errors).length === 0);
