@@ -68,47 +68,47 @@ export default function UpdateForm(props) {
         Getstudentdetails();
     }, []);
 
-    // async function Getstudentdetails() {
-    //     const studentdata = props.params.studentid;
-    //     let student_data = await fetch(`${BASE_API_URL}/api/getstudent/` + studentdata);
-    //     student_data = await student_data.json();
-    //     console.log(student_data);
+    async function Getstudentdetails() {
+        const studentdata = props.params.studentid;
+        let student_data = await fetch(`${BASE_API_URL}/api/getstudent/` + studentdata);
+        student_data = await student_data.json();
+        console.log(student_data);
 
-    //     if (student_data.sucess) {
-    //         setfirst_name(student_data.students.first_name);
-    //         setlast_name(student_data.students.last_name);
-    //         setaddress(student_data.students.address);
-    //         setmail(student_data.students.mail);
-    //         setmobile(student_data.students.mobile);
-    //         setbdate(student_data.students.bdate);
-    //         setrno(student_data.students.rno);
-    //         setsemester(student_data.students.semester);
-    //         setclg(student_data.students.clg);
-    //         setgender(student_data.students.gender);
-    //         setName(student_data.students.course_details);
-    //         setName(student_data.students.class_details);
-    //     }
-    //     else {
-    //         alert("Not Update Your Data");
-    //     }
-    // }
+        if (student_data.sucess) {
+            setfirst_name(student_data.students.first_name);
+            setlast_name(student_data.students.last_name);
+            setaddress(student_data.students.address);
+            setmail(student_data.students.mail);
+            setmobile(student_data.students.mobile);
+            setbdate(student_data.students.bdate);
+            setrno(student_data.students.rno);
+            setsemester(student_data.students.semester);
+            setclg(student_data.students.clg);
+            setgender(student_data.students.gender);
+            setName(student_data.students.course_details);
+            setName(student_data.students.class_details);
+        }
+        else {
+            alert("Not Update Your Data");
+        }
+    }
 
-    // async function update() {
-    //     const studentdata = props.params.studentid;
-    //     let data = await fetch(`${BASE_API_URL}/api/getstudent/` + studentdata, {
-    //         method: "PUT",
-    //         body: JSON.stringify({ first_name, last_name, address, mail, mobile, gender, bdate, rno, semester, clg, course_details, class_details })
-    //     });
-    //     data = await data.json();
-    //     console.log(data);
+    async function update() {
+        const studentdata = props.params.studentid;
+        let data = await fetch(`${BASE_API_URL}/api/getstudent/` + studentdata, {
+            method: "PUT",
+            body: JSON.stringify({ first_name, last_name, address, mail, mobile, gender, bdate, rno, semester, clg, course_details, class_details })
+        });
+        data = await data.json();
+        console.log(data);
 
-    //     if (data.students) {
-    //         alert("Sucessfull Data Update");
-    //     }
-    //     else {
-    //         alert("Not Sucessfull Data Update\nPlz Again Try");
-    //     }
-    // }
+        if (data.students) {
+            alert("Sucessfull Data Update");
+        }
+        else {
+            alert("Not Sucessfull Data Update\nPlz Again Try");
+        }
+    }
     
     return (
         <main className="container-fluid" >

@@ -6,17 +6,17 @@ export const metadata = {
   title: "Student Details"
 }
 
-// async function studentdetails(studentid) {
-//   let data = await fetch(`${BASE_API_URL}/api/getstudent/${studentid}` ,{cache:"no-store"});
-//   data = await data.json();
-//   return data.students;
-// }
+async function studentdetails(studentid) {
+  let data = await fetch(`${BASE_API_URL}/api/getstudent/${studentid}` ,{cache:"no-store"});
+  data = await data.json();
+  return data.students;
+}
 
 export default async function Page({ params }) {
 
-  // console.log(params);
-  // const student = await studentdetails(params.studentid);
-  // console.log(student);
+  console.log(params);
+  const student = await studentdetails(params.studentid);
+  console.log(student);
 
   return (
     <main className="container-fluid">
