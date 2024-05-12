@@ -9,20 +9,20 @@ export const metadata = {
     title: "Student Records"
 }
 
-export async function Getstudentdetails() {
-    let data = await fetch(`${BASE_API_URL}/api/getstudent`, { cache: 'no-store' });
-    data = await data.json();
-    return data.students;
-}
+// export async function Getstudentdetails() {
+//     let data = await fetch(`${BASE_API_URL}/api/getstudent`, { cache: 'no-store' });
+//     data = await data.json();
+//     return data.students;
+// }
 
 export default async function Student_details() {
 
-    if(!BASE_API_URL){
-        return null;
-    }
+    // if(!BASE_API_URL){
+    //     return null;
+    // }
 
-    let students = await Getstudentdetails();
-    console.log(students);
+    // let students = await Getstudentdetails();
+    // console.log(students);
 
     return (
         <div className="container" >
@@ -47,12 +47,12 @@ export default async function Student_details() {
                         </tr>
                     </thead>
                     <tbody>
-                        {
-                            students.map((item, idex) => {
+                        {/* {
+                            students.map((item) => {
                                 return (
-                                    <tr >
-                                        <td key={idex} >{item.rno}</td>
-                                        <td key={idex}>{item.first_name} {item.last_name}</td>
+                                    <tr key={item} >
+                                        <td >{item.rno}</td>
+                                        <td >{item.first_name} {item.last_name}</td>
                                         <td><a href={`/page/studentfetch/${item._id}`} >Go To Details</a></td>
                                         <td>
                                             <button className="btn btn-primary btn-sm" >
@@ -63,7 +63,7 @@ export default async function Student_details() {
                                     </tr>
                                 )
                             })
-                        }
+                        } */}
                     </tbody>
                 </table>
             </div>
